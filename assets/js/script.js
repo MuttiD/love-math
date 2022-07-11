@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {                  // D
         })
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {                                        // every time it is pressed Enter into the answer box, the checkAnswer is actioned
+            checkAnswer();
+        }
+    })
+
     runGame("addition");                                                    // default game, as soon as the page is loaded
 
 
@@ -26,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {                  // D
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = "";                       // this will empty the ansert box every time the page is loaded 
+    document.getElementById("answer-box").focus();                          // the cursor will be in the answer box 
+
     let num1 = Math.floor(Math.random() * 25) + 1;                          // generates a random number between 1 and 25
     let num2 = Math.floor(Math.random() * 25) + 1;
 
