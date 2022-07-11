@@ -17,9 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {                  // D
 
 })
 
+//  this below are docstrings - very useful to create explanatory strings of functions, in this case - runGame
+/**
+ * The main game "loop", called when the script is first loaded
+ * and after the user's answer has been processed
+ */
 function runGame() {
-
+    let num1 = Math.floor(Math.random() * 25) + 1;                          // generates a random number between 1 and 25
+    let num2 = Math.floor(Math.random() * 25) + 1;
 }
+
+runGame();
 
 function checkAnswer() {
 
