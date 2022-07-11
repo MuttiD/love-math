@@ -33,6 +33,9 @@ function runGame(gameType) {
         displayAdditionQuestion(num1, num2);
     } else if (gameType === "multiply") {
         displayMultiplyQuestion(num1, num2);
+    } else if (gameType === "subtract") {
+        displaySubtractQuestion(num1, num2);
+    
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;                  // throw statement will stop the game from running. see more here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
@@ -78,6 +81,9 @@ function calculateCorrectAnswer() {
     } else if (operator === "x") {
         return [operand1 * operand2, "multiply"];
     
+    } else if (operator === "-") {
+        return [operand1 - operand2, "subtract"];
+       
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -112,7 +118,10 @@ function displayAdditionQuestion(operand1, operand2) {
 
 }
 
-function displaySubtractQuestion() {
+function displaySubtractQuestion(operand1, operand2) {
+    document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2             //which is bigger: op1 or op2? if op1 is bigger, return that. if op2 is bigger, return that instead
+    document.getElementById("operand1").textContent = operand1 > operand2 ? operand2 : operand1
+    document.getElementById('operator').textContent = "-"
 
 }
 
