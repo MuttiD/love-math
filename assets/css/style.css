@@ -111,7 +111,7 @@ body {
     transition: all 0.5s;
 }
 
-.btn--big::after{                           /* this pseudo-attribute works like styling the label */
+.btn--big::after{                           /* this pseudo-attribute in this case works styling the label== more visit https://developer.mozilla.org/en-US/docs/Web/CSS/::after */
     content: attr(data-type);
     font-size: 1rem;
     color: #445361;
