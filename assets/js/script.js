@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {                  // D
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "submit") {              // "this" will refer to a specific button, iw next button is clicked, then this button turns into the specific
-                alert("You clicked Submit!");
+                checkAnswer();
             } else {
                 let gameType = this.getAttribute("data-type");
                 runGame(gameType);                                         //           original code here (just for testing): alert(`You clicked ${gameType}`);
@@ -40,7 +40,23 @@ function runGame(gameType) {
 
 runGame();
 
+/**
+ * Check the answer against the first element in
+ * the returned calculateCorrectAnswer array
+ */
 function checkAnswer() {
+
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) {
+        alert("Hey! You got it right! :D");
+    } else {
+        alert(`Ahhh...you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}`);
+    }
+
+    runGame(calculatedAnswer[1]);
 
 }
 
